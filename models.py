@@ -18,3 +18,9 @@ class Book(SQLModel, table=True):
     published_date: date = Field(nullable=False)
     available: bool = Field(default=True)
 
+class Borrow(SQLModel, table=True):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    user_id: User.id
+    book_id: Book.id
+    borrowed_date: datetime = Field(default=datetime.utcnow)
+    returned_date: datetime = Field(nullable=True)
