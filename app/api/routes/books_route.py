@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from uuid import UUID
 
-from app.schemas.book import BookCreate, BookRead
-from app.models.book import Book
+from app.schemas.book_schema import BookCreate, BookRead
+from app.models.book_model import Book
 from app.db.session import get_session
-from app.crud.book import (
+from app.crud.book_crud import (
     create_book,
     delete_book,
     get_all_books,
