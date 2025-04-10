@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.api.routes import book_route as book
 from app.db.init_db import init_db
-from app.core.config import get_settings
+from app.core.config import settings
 
 
 @asynccontextmanager
@@ -21,7 +21,6 @@ app.include_router(book.router)
 @app.get("/")
 def root():
 
-    settings = get_settings()
     print(settings.SECRET_KEY)
     print(settings.DATABASE_URL)
 
